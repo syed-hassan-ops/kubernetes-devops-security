@@ -37,4 +37,12 @@ pipeline {
         
     }
   }
+  post{
+      success{
+        script{
+            jacoco execPattern: 'target/jacoco.exec'
+            junit 'target/surefire-reports/*.xml'
+        }
+      }
+  }
 }
